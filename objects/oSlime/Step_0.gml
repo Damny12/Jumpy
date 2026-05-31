@@ -17,6 +17,10 @@ var _bouncers=[oCorpse]
 var _killers=layer_tilemap_get_id("Die")
 var _enemies=[oRedSlime]
 
+//update
+global.drainMult=drainMult
+ticks++
+
 //x movement
 
 //direction
@@ -113,11 +117,9 @@ if (place_meeting(x,y-2,layer_tilemap_get_id("Ground"))){
 }
 
 //glide
-if (skillLevel("Glide") >= 1 && yspd >= termvel-2.5){
+if (Count(skillSet,"Glide") >= 1 && yspd >= termvel-2.5){
 	glideToggle=true
 }
-
-show_debug_message(glideToggle)
 
 if (glideToggle){
 	grav=glideGrav
@@ -129,8 +131,6 @@ if (glideToggle){
 	moveSpd=defaultMoveSpd
 	termvel=defaultTermVel
 }
-
-show_debug_message(glideToggle)
 
 //sprite changing
 function change(){
@@ -188,13 +188,19 @@ if (attack_key && attackDebounce<=0){
 
 if (place_meeting(x,y,oLadder) and makingCoins==false){
 	global.finalOxygen=floor(oxygen-2.2)
-	coinCount=global.finalOxygen
+	coinCount=global.finalOxygen*global.coinOxygenConversion
 	coins=coinCount
 	makingCoins=true
 }
 
 iframes-=1
 attackDebounce-=1
+
+//increase drain
+if (ticks mod 60==0){
+    drainMult+=drainIncrease
+    global.coinOxygenConversion+=drainIncrease
+}
 
 //coin
 if (makingCoins){
@@ -217,8 +223,9 @@ if (makingCoins){
 		coinFrame=0
 	}
 	
-	if (coins==0){
+	if (coins<=0){
 		makingCoins=false
 		room_goto(Shop)
 	}
 }
+

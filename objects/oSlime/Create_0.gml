@@ -1,20 +1,12 @@
-function skillLevel(name){
-	var _return = 0
-	for (i = 0;i<array_length(skillSet);i++){
-		if (skillSet[i]==name) {
-			_return+=1
-		}
-	}
-	return _return
-}
-
 // moving
 moveDir=0
 moveSpd=2
 defaultMoveSpd=2
-
 xspd=0
 yspd=0
+
+//ticking
+ticks=0
 
 //jumping
 defaultgrav=0.275
@@ -33,10 +25,12 @@ enemyDrain=0.1
 maxOxygen=10
 drainMult=1
 
-//enemy crap
+drainIncrease=Count(global.modifiers,GrowingPressure)*0.04
+
+//enemy stuff
 iframes=0
 
-//finish them
+//attacking
 attackCooldown=30
 attackDmg=1
 attackDebounce=0
@@ -52,7 +46,7 @@ secondDelay=1
 
 //skills
 skillSet=global.skills
-attackDmg=1+skillLevel("Strength")
+attackDmg=1+Count(skillSet,"Strength")
 
 //poison
 poisonTicks=[]
@@ -65,16 +59,24 @@ glideTerminal=defaultTermVel/2
 glideSpeed=defaultMoveSpd
 glideSoftCapSpeed=0.02+defaultgrav
 
-for(var i=0;i<skillLevel("Poison");i++){
-	array_push(poisonTicks,60*(i/skillLevel("Poison")))
-	show_debug_message(60*(i/skillLevel("Poison")))
+//poison timing
+for(var i=0;i<Count(skillSet,"Poison");i++){
+	array_push(poisonTicks,60*(i/Count(skillSet,"Poison")))
 }
 
-if (skillLevel("Poison")==0){
+if (Count(skillSet,"Poison")==0){
 	poisonDmg=0
 }else{
 	poisonDmg=1
 }
 
+
 //currency
 global.finalOxygen=floor(oxygen)
+
+//modifier creation
+for (var i =0;i<array_length(global.modifiers);i++){
+	instance_create_depth(372+i*32,y+128,3,CardModifier,{
+		sprite_index:array_get(global.modifiers,i)
+	})
+}

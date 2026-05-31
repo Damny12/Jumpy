@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Count",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Count",
+  "parent":{
+    "name":"utility",
+    "path":"folders/scripts/utility.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
