@@ -31,10 +31,10 @@ roommax=7
 
 function PositionDifference(tilegroup){
     var _firstX=tilegroup[0][0]
-    var _lastX=tilegroup[array_length(tilegroup)][0]
+    var _lastX=tilegroup[array_length(tilegroup)-1][0]
     
     var _firstY=tilegroup[0][1]
-    var _lastY=tilegroup[array_length(tilegroup)][1]
+    var _lastY=tilegroup[array_length(tilegroup)-1][1]
     
     return([
         _firstX-_lastX,
