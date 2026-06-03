@@ -41,7 +41,6 @@ function PositionDifference(tilegroup){
         _firstY-_lastY
     ])
 }
-show_debug_message(PositionDifference(dropoff))
 
 function TileGround(tiles){
 	//tile
@@ -88,14 +87,44 @@ TileGround(flat)
 
 var _pick
 var _lastPick = 0
+var _lowPosBlock = []
+var _highPosBlock = []
+var _lowPosEnemy = []
+var _highPosEnemy = []
 var _prohibited=[]
 
 var _amount=irandom_range(roommin,roommax)
+
+for (var i=0; i<array_length(blocks);i++){
+    if (PositionDifference(blocks[i])[1]<0){
+        array_push(_lowPosBlock,i)
+    }
+    if (PositionDifference(blocks[i])[1]>0){
+        array_push(_highPosBlock,i)
+    }
+}
+
+for (var i=0; i<array_length(enemies);i++){
+    if (PositionDifference(enemies[i])[1]<0){
+        array_push(_lowPosEnemy,i)
+    }
+    if (PositionDifference(enemies[i])[1]>0){
+        array_push(_highPosEnemy,i)
+    }
+}
 
 //make multiple blocks
 repeat (_amount) {
 	if (irandom_range(1,2) == 1){		
 		_prohibited=[]
+        
+        if (y>=640){
+			_prohibited=_lowPosEnemy
+		}
+		if (y<=100){
+			_prohibited=_highPosEnemy
+		}
+        
 		_pick=irandom_range(0,array_length(enemies)-1)
 		
 		//prevent repeats
@@ -121,11 +150,11 @@ repeat (_amount) {
 			_pick=irandom_range(0,array_length(blocks)-1)
 		}
 		
-		if (y>=700){
-			_prohibited=[2,3]
+		if (y>=640){
+			_prohibited=_lowPosBlock
 		}
 		if (y<=100){
-			_prohibited=[1]
+			_prohibited=_highPosBlock
 		}
 	
 		if picks==_amount{
