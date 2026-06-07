@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"card_modifiers",
-    "path":"folders/graphics/card_modifiers.yy",
+    "path":"folders/graphics/GUI/card_modifiers.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

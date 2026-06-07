@@ -4,7 +4,10 @@ var left_key = keyboard_check(vk_left)||keyboard_check(ord(global.leftKey))
 var up_key = keyboard_check_pressed(vk_space)||keyboard_check(ord(global.spaceKey))
 var attack_key = keyboard_check(ord("E"))||keyboard_check(ord(global.attackKey))
 
-if (keyboard_check(vk_escape)&&keyboard_check(vk_shift)) game_end(0)
+if (keyboard_check(vk_escape)&&keyboard_check(vk_shift)) {
+    game_end(0)
+}
+
 if (keyboard_check(vk_f1)&&keyboard_check(vk_shift)) {
 	global.finalOxygen=floor(oxygen-2.2)
 	coinCount=global.finalOxygen
@@ -15,7 +18,7 @@ if (keyboard_check(vk_f1)&&keyboard_check(vk_shift)) {
 var _ground=layer_tilemap_get_id("Ground")
 var _bouncers=[oCorpse]
 var _killers=layer_tilemap_get_id("Die")
-var _enemies=[oRedSlime]
+var _enemies=global.enemies
 
 //update
 global.drainMult=drainMult
@@ -44,8 +47,8 @@ if (place_meeting(x+xspd,y,_ground)){
 
 //damaging
 for (var i=0;i<array_length(_enemies);i++){
-	if (place_meeting(x,y,_enemies[i]) and iframes<=0 and sprite_index!=sSlimeAttack){
-		oxygen-=enemyDrain*drainMult
+	if (place_meeting(x,y,_enemies[i]) and iframes<=0){
+		oxygen-=enemyDrain*drainMult*_enemies[i].damageMult
 		iframes=25
 		if (yspd<=0){
 			yspd=-5
@@ -165,10 +168,6 @@ function change(){
 	}
 }
 
-if (attackDebounce<=attackCooldown){
-	change()
-}
-
 //die
 if (place_meeting(x,y,_killers)) oxygen-=naturalDrain*10*drainMult
 
@@ -182,13 +181,15 @@ if (oxygen<2.2*(maxOxygen/10)){
 
 //attacking
 if (attack_key && attackDebounce<=0){
-	sprite_index=sSlimeAttack
+	attackObject=instance_create_layer(x,y,"PlayerStuff",oAttack,{
+        image_xscale:sign(xspd)
+    })
 	attackDebounce=attackCooldown+attackLength
 }
 
 if (place_meeting(x,y,oLadder) and makingCoins==false){
 	global.finalOxygen=floor(oxygen-2.2)
-	coinCount=global.finalOxygen*global.coinOxygenConversion
+	coinCount=(global.finalOxygen*global.coinOxygenConversion)+global.finalEnemyKillCoins
 	coins=coinCount
 	makingCoins=true
 }
@@ -229,3 +230,4 @@ if (makingCoins){
 	}
 }
 
+change()

@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"bases",
-    "path":"folders/enemies/bases.yy",
+    "path":"folders/objects/enemies/bases.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -50,6 +50,7 @@
         " GMTimeline",
       ],"listItems":[],"multiselect":false,"name":"corpseSprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"noone","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"corpse","filters":[],"listItems":[],"multiselect":false,"name":"corpse","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"oCorpse","path":"objects/oCorpse/oCorpse.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"oCorpse","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"damageMult","filters":[],"listItems":[],"multiselect":false,"name":"damageMult","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

@@ -35,6 +35,7 @@ attackCooldown=30
 attackDmg=1
 attackDebounce=0
 attackLength=20
+attackObject=noone
 
 //coins
 drawCoin=false

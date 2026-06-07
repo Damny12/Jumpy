@@ -1,10 +1,16 @@
-tileSize=32*movDir
-x+=movespeed*movDir
+if (abs(xspd)>=termVel){
+    xspd=termVel*sign(xspd)
+}
+
+x+=xspd
+
+show_debug_message(place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground")))
 
 if (leftRightMovement){
 	//Is there ground infront of me
-	if(place_meeting(x,y,layer_tilemap_get_id("Ground")) or !place_meeting(x+tileSize,y+32,layer_tilemap_get_id("Ground"))) {
-		x-=movespeed*movDir
+	if(place_meeting(x+xspd,y,layer_tilemap_get_id("Ground")) or place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground"))==false) {
+		x-=movespeed*movDir*xspd
+        xspd=0
 		movDir*=-1
 	}
 
@@ -13,12 +19,12 @@ if (leftRightMovement){
 		for (i=1;i<=range;i++) {
 			if (place_meeting(x+i*32*movDir,y,oSlime)){
 				//Get angry
-				movespeed=defaultMoveSpeed*angerMult
+				movespeed=defaultMoveSpeed*angerMult*movDir
 				sprite_index=angerSprite
 				return
 			}else{
 				//Calm down
-				movespeed=defaultMoveSpeed
+				movespeed=defaultMoveSpeed*movDir
 				sprite_index=calmSprite
 			}
 		}
@@ -28,6 +34,8 @@ if (leftRightMovement){
 		//Call the function
 		lookAndRun()
 	}
+    
+    xspd+=movespeed
 }
 
 //Iframes
@@ -37,12 +45,13 @@ if (iframes<0) {
 	iframes=0
 }
 
-if (iframes==0 && oSlime.sprite_index==sSlimeAttack && place_meeting(x,y,oSlime)){
+if (iframes==0 && place_meeting(x,y,oAttack)){
 	hp-=oSlime.attackDmg
 	iframes=secondsOfInvincibility*30
 	if (oSlime.poisonDmg>0){
 		poisonedDuration=60
 	}
+    xspd=sign(oAttack.image_xscale)*termVel
 }
 
 //posion
@@ -69,3 +78,5 @@ if (hp<=0){
 	})
 	instance_destroy()
 }
+
+xspd/=xFriction

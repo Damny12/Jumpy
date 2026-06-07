@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/ezeki/GameMakerProjects/Jumpy/git-sim_media/Jumpy/videos/1080p60/partial_movie_files/Log/2527369560_2667827677_3342385367.mp4'

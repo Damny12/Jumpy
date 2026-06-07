@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"newSlider",
   "parent":{
-    "name":"scripts",
-    "path":"folders/GUI/scripts.yy",
+    "name":"GUI",
+    "path":"folders/scripts/GUI.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

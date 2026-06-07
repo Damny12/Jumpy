@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"item_images",
-    "path":"folders/graphics/item_images.yy",
+    "path":"folders/graphics/GUI/item_images.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -10,8 +10,8 @@
   "name":"oSlime",
   "overriddenProperties":[],
   "parent":{
-    "name":"Jumpy",
-    "path":"Jumpy.yyp",
+    "name":"objects",
+    "path":"folders/objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

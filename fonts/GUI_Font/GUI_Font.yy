@@ -589,7 +589,7 @@
   "name":"GUI_Font",
   "parent":{
     "name":"GUI",
-    "path":"folders/GUI.yy",
+    "path":"folders/graphics/GUI.yy",
   },
   "pointRounding":0,
   "ranges":[

@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"bases",
-    "path":"folders/enemies/bases.yy",
+    "path":"folders/objects/enemies/bases.yy",
   },
   "parentObjectId":null,
   "persistent":false,

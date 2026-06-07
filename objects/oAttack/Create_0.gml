@@ -1,0 +1,2 @@
+lastingTick=oSlime.attackLength
+ticks=0

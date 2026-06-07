@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"scriptRunners",
-    "path":"folders/scripts/scriptRunners.yy",
+    "path":"folders/objects/scriptRunners.yy",
   },
   "parentObjectId":null,
   "persistent":false,

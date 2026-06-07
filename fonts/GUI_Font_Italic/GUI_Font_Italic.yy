@@ -300,7 +300,7 @@
   "name":"GUI_Font_Italic",
   "parent":{
     "name":"GUI",
-    "path":"folders/GUI.yy",
+    "path":"folders/graphics/GUI.yy",
   },
   "pointRounding":0,
   "ranges":[

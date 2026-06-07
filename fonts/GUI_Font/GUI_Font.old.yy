@@ -5,7 +5,7 @@
   "applyKerning":0,
   "ascender":14,
   "ascenderOffset":0,
-  "bold":false,
+  "bold":true,
   "canGenerateBitmap":true,
   "charset":0,
   "first":0,
@@ -589,7 +589,7 @@
   "name":"GUI_Font",
   "parent":{
     "name":"GUI",
-    "path":"folders/GUI.yy",
+    "path":"folders/objects/GUI.yy",
   },
   "pointRounding":0,
   "ranges":[
