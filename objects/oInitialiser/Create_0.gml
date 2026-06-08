@@ -1,3 +1,4 @@
+window_enable_borderless_fullscreen(true)
 window_set_fullscreen(true)
 
 //globals
@@ -18,7 +19,7 @@ global.modifierStatsDescription={
 }
 
 //enemies
-global.enemyHp=3
+global.enemyHp=0
 global.enemies=[oRedSlime]
 
 //keybinds

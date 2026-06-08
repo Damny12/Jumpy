@@ -9,13 +9,14 @@
   "managed":true,
   "name":"oRedSlime",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"reward","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"reward","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"2",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"leftRightMovement","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"corpseSprite","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"sDeadSlime","path":"sprites/sDeadSlime/sDeadSlime.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sDeadSlime",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"angerSprite","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"sAngryRedSlime","path":"sprites/sAngryRedSlime/sAngryRedSlime.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sAngryRedSlime",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"calmSprite","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"sCrab","path":"sprites/sCrab/sCrab.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sCrab",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"getsAngry","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"corpse","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"oCorpse","path":"objects/oCorpse/oCorpse.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"oCorpse",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"defaultHp","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
   ],
   "parent":{
     "name":"enemies",

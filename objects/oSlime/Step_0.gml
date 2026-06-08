@@ -1,7 +1,7 @@
 //inputs
 var right_key = keyboard_check(vk_right)||keyboard_check(ord(global.rightKey))
 var left_key = keyboard_check(vk_left)||keyboard_check(ord(global.leftKey))
-var up_key = keyboard_check_pressed(vk_space)||keyboard_check(ord(global.spaceKey))
+var up_key = keyboard_check(vk_space)||keyboard_check(ord(global.spaceKey))||keyboard_check(vk_up)
 var attack_key = keyboard_check(ord("E"))||keyboard_check(ord(global.attackKey))
 
 if (sign(xspd) != 0){
@@ -114,7 +114,7 @@ if (place_meeting(x,y+yspd,_ground)){
 }
 
 //Hanging
-if (place_meeting(x,y-2,layer_tilemap_get_id("Ground"))){
+if (place_meeting(x,y-yspd,layer_tilemap_get_id("Ground"))){
 			grav=-defaultgrav
 			jmpspd=1
 			oxygen-=movementDrain*drainMult
@@ -195,10 +195,14 @@ if (attack_key && attackDebounce<=0){
 }
 
 if (place_meeting(x,y,oLadder) and makingCoins==false){
-	global.finalOxygen=floor(oxygen-2.2)
-	coinCount=(global.finalOxygen*global.coinOxygenConversion)+global.finalEnemyKillCoins
-	coins=coinCount
-	makingCoins=true
+    if (room==Tutorial){
+        room_goto(Levels)
+    }else{
+        global.finalOxygen=floor(oxygen-2.2)
+       	coinCount=(global.finalOxygen*global.coinOxygenConversion)+global.finalEnemyKillCoins
+       	coins=coinCount
+       	makingCoins=true
+    }
 }
 
 iframes-=1

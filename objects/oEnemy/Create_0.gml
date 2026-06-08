@@ -3,15 +3,15 @@ hp=global.enemyHp+defaultHp
 
 //movement
 defaultMoveSpeed=0.2
-movespeed=0.2
 movDir=1
+movespeed=defaultMoveSpeed*movDir
 
 xspd=0
 termVel=4
 xFriction=1.1
 
 //angry
-range=5
+range=angerRange
 angerMult=1.5
 
 //damaging

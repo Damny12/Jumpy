@@ -11,6 +11,4 @@ if (keyboard_check(vk_escape)&&keyboard_check(vk_shift)) game_end(0)
 try {
 	if (waiter.done){
 		task()
-}} catch(_expect){
-	show_debug_message(_expect.message)
-}
+}} catch(_expect){}
