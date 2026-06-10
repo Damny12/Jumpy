@@ -1,5 +1,4 @@
 window_enable_borderless_fullscreen(true)
-window_set_fullscreen(true)
 
 //globals
 global.drainMult=1
@@ -20,7 +19,10 @@ global.modifierStatsDescription={
 
 //enemies
 global.enemyHp=0
-global.enemies=[oRedSlime]
+global.enemies=[
+    oRedSlime,
+    oSeaPig
+]
 
 //keybinds
 global.rightKey="D"

@@ -46,26 +46,30 @@ if (!oMenu.paused){
    }
    
    if (iframes==0 && place_meeting(x,y,oAttack)){
-   	hp-=oSlime.attackDmg
-   	iframes=secondsOfInvincibility*30
-   	if (oSlime.poisonDmg>0){
-   		poisonedDuration=60
-   	}
-       
-       var hitPartSysLeft=part_system_create(ParticleSystemHitLeft)
-       var hitPartSysRight=part_system_create(ParticleSystemHitRight)
-       
-       if (sign(oAttack.image_xscale)<0){
-           part_system_position(hitPartSysRight,x,y)
-       }
-       
-       if (sign(oAttack.image_xscale)>0){
-           part_system_position(hitPartSysLeft,x,y)
-       }
-       
-       xspd=sign(oAttack.image_xscale)*termVel
-       oSlime.xspd+=sign(oAttack.image_xscale)*oSlime.moveSpd
-   }
+    hp-=oSlime.attackDmg
+    iframes=secondsOfInvincibility*30
+    if (oSlime.poisonDmg>0){
+        poisonedDuration=60
+    }
+    var hitPartSysLeft=part_system_create(ParticleSystemHitLeft)
+    var hitPartSysRight=part_system_create(ParticleSystemHitRight)
+    
+    if (sign(oAttack.image_xscale)<0){
+        part_system_position(hitPartSysRight,x,y)
+    }
+    
+    if (sign(oAttack.image_xscale)>0){
+        part_system_position(hitPartSysLeft,x,y)
+    }
+    
+    xspd=sign(oAttack.image_xscale)*termVel 
+        if(place_meeting(x+xspd,y,layer_tilemap_get_id("Ground")) /*Did i hit a wall?*/ or !place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground")) /*Is there ground infront of me?*/) {
+            x-=movespeed*movDir*xspd
+            xspd=0
+            movDir*=-1
+    }
+    oSlime.xspd+=sign(oAttack.image_xscale)*oSlime.moveSpd
+}
    
    //posion
    if (poisonedDuration>0){
