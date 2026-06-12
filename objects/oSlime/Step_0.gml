@@ -9,10 +9,6 @@ if (!oMenu.paused){
         prevDir=sign(xspd)
     }
     
-    if (keyboard_check(vk_escape)&&keyboard_check(vk_shift)) {
-        game_end(0)
-    }
-    
     if (keyboard_check(vk_f1)&&keyboard_check(vk_shift)) {
     	global.finalOxygen=floor(oxygen-2.2)
     	coinCount=global.finalOxygen
@@ -195,15 +191,24 @@ if (!oMenu.paused){
     	attackDebounce=attackCooldown+attackLength
     }
     
-    if (place_meeting(x,y,oLadder) and makingCoins==false){
+    //coins
+    if (place_meeting(x,y,oLadder) and lastCollect==false){
         if (room==Tutorial){
             room_goto(Levels)
         }else{
+            lastCollect=true
             global.finalOxygen=floor(oxygen-2.2)
-           	coinCount=(global.finalOxygen*global.coinOxygenConversion)+global.finalEnemyKillCoins
-           	coins=coinCount
+           	coinCount=(global.finalOxygen*global.coinOxygenConversion)
+           	coins+=coinCount
            	makingCoins=true
         }
+    }
+    
+    if (global.finalEnemyKillCoins!=0){
+        coinCount=global.finalEnemyKillCoins
+        global.finalEnemyKillCoins-=coinCount
+        coins+=coinCount
+        makingCoins=true
     }
     
     iframes-=1
@@ -217,30 +222,30 @@ if (!oMenu.paused){
     
     //coin
     if (makingCoins){
+        show_debug_message(coinFrame)
     	drainMult=0
-    	if (coinFrame==0){
-    		randX=irandom_range(0,180)
-    		randY=irandom_range(0,180)
-    		drawCoin=true
+    	if (coinFrame==0 and !coins<=0){
+            instance_create_layer(x,y,"Ladder",oCoin)
     	}
     	
     	coinFrame+=1
     	
-    	if (coinFrame==round(secondDelay*30/coinCount)){
+    	if (coinFrame==round(secondDelay*30/coinCount) and !coins<=0){
     		coins-=1
     		global.finalCoins+=1
     	}
     	
-    	if (coinFrame==round(secondDelay*60/coinCount)){
+    	if (coinFrame>=round(secondDelay*60/coinCount) and !coins<=0){
     		drawCoin=false
     		coinFrame=0
     	}
     	
-    	if (coins<=0){
+    	if (coins<=0 and coinFrame>=90){
     		makingCoins=false
-    		room_goto(Shop)
+            if (lastCollect and coinFrame){
+                room_goto(Shop)
+            }
     	}
     }
-    
     change()
 }

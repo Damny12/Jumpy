@@ -10,7 +10,3 @@ draw_line_width_colour(5,300,115,300,10,_cyan,_cyan)
 draw_rectangle_colour(15,65,105,(300/maxOxygen)*oxygen,_blue,_blue,_blue,_blue,false)
 
 display_set_gui_size(view_wport[0], view_hport[0])
-
-if (drawCoin){
-	draw_text(randX,randY,"+1")
-}

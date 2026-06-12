@@ -1,6 +1,6 @@
 {
   "$GMSprite":"v2",
-  "%Name":"sHands",
+  "%Name":"sCoin",
   "bboxMode":0,
   "bbox_bottom":7,
   "bbox_left":0,
@@ -21,9 +21,9 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"37182e39-4726-45ce-82d8-a95dbd5c2fdf","blendMode":0,"displayName":"default","isLocked":false,"name":"37182e39-4726-45ce-82d8-a95dbd5c2fdf","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sHands",
+  "name":"sCoin",
   "nineSlice":null,
-  "origin":7,
+  "origin":4,
   "parent":{
     "name":"slime",
     "path":"folders/graphics/slime.yy",
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"sHands",
+    "%Name":"sCoin",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sHands",
+    "name":"sCoin",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,14 +69,14 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b3b92055-f53c-49b0-99fd-2f42bce40d1e","path":"sprites/sHands/sHands.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b3b92055-f53c-49b0-99fd-2f42bce40d1e","path":"sprites/sCoin/sCoin.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"c0fed299-02bc-4cba-8a6e-69a6c9dfe1ce","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
     "xorigin":4,
-    "yorigin":8,
+    "yorigin":4,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

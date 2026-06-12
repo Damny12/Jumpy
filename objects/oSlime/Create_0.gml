@@ -40,12 +40,12 @@ attackLength=20
 attackObject=noone
 
 //coins
-drawCoin=false
 coinFrame=0
 makingCoins=false
 coinCount=0
 coins=0
 secondDelay=1
+lastCollect=false
 
 //skills
 skillSet=global.skills
